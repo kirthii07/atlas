@@ -1,4 +1,6 @@
-const API_BASE = '/api';
+const RAW_URL = import.meta.env.VITE_API_BASE_URL || 'https://atlas-4by0.onrender.com';
+const CLEAN_URL = RAW_URL.replace(/\/+$/, '');
+export const API_BASE = CLEAN_URL.endsWith('/api') ? CLEAN_URL : `${CLEAN_URL}/api`;
 
 export async function fetchHealth() {
   try {
@@ -25,7 +27,7 @@ export async function saveOrganization(orgData) {
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    throw new Error(err.message || 'Failed to save organization');
+    throw new Error(err.message || 'Failed to save organization profile');
   }
   return await res.json();
 }
@@ -80,4 +82,3 @@ export async function addCustomAction(roadmapId, actionData) {
   }
   return await res.json();
 }
-
