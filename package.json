@@ -1,0 +1,14 @@
+{
+  "name": "atlas-people4good",
+  "version": "1.0.0",
+  "description": "ATLAS by People4Good — AI-enabled digital transformation platform for grassroots NGOs",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "node backend/server.js",
+    "client": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend"
+  },
+  "author": "People4Good",
+  "license": "MIT"
+}
+
